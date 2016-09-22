@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Message</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ message.id }}</td>
+            </tr>
+            <tr>
+                <th>Projectid</th>
+                <td>{{ message.projectId }}</td>
+            </tr>
+            <tr>
+                <th>Parentmessageid</th>
+                <td>{{ message.parentMessageId }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ message.content }}</td>
+            </tr>
+            <tr>
+                <th>Parentfileid</th>
+                <td>{{ message.parentFileId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('message_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('message_edit', { 'id': message.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
